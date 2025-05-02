@@ -687,6 +687,105 @@
 .business-highlight .btn {
     margin-top: 1.5rem;
 }
+.business-highlight {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    padding: 4rem 5%;
+    margin: 3rem 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.highlight-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.highlight-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s;
+}
+
+.highlight-image:hover img {
+    transform: scale(1.03);
+}
+
+.highlight-content {
+    flex: 1;
+    text-align: left;
+}
+
+.highlight-content h3 {
+    font-size: 2rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.highlight-content p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.store-features {
+    margin: 1.5rem 0;
+}
+
+.store-features li {
+    list-style: none;
+    margin-bottom: 0.8rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.store-features i {
+    color: var(--accent1);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .highlight-container {
+        flex-direction: column;
+    }
+    .highlight-content {
+        text-align: center;
+    }
+    .store-features li {
+        justify-content: center;
+    }
+    .cta-buttons {
+        justify-content: center;
+    }
+}
     </style>
 </head>
 <body>
@@ -829,15 +928,29 @@
     </section>
     </section>
     <section class="business-highlight">
-      <h3>My E-commerce Venture</h3>
-      <div class="portfolio-item">
-        <img src="https://i.postimg.cc/DZKbWSYn/Grey-Minimalist-Corporate-Personal-Profile-Linked-In-Banner.png" alt="Project 4" class="portfolio-img">
-      </div>
-      <p>When I'm not coding, I run <strong>@azhara_in_</strong> - an online store offering  <br/> stylish accessories, jewelry, and fashion items. Click below to check out our latest collection!</p>
-      <a href="https://instagram.com/azhara_in_" target="_blank" class="btn">
-          <i class="fas fa-shopping-bag"></i> Visit @azhara_in_
-      </a>
-  </section>
+        <div class="highlight-container">
+            <div class="highlight-image">
+                <img src="https://i.postimg.cc/gcRrXVCh/White-and-Brown-Minimalist-Phone-Mockup-Instagram-Story.png" alt="@azhara_in_ Instagram Store" alt="Azhara.in Fashion Collection">
+            </div>
+            <div class="highlight-content">
+                <h3>My E-commerce Venture</h3>
+                <p>When I'm not coding, I run <strong>@azhara_in_</strong> — a curated online boutique offering:</p>
+                <ul class="store-features">
+                    <li><i class="fas fa-check-circle"></i> Trendy jewelry & accessories</li>
+                    <li><i class="fas fa-check-circle"></i> Affordable fashion staples</li>
+                    <li><i class="fas fa-check-circle"></i> Bulk order discounts</li>
+                </ul>
+                <div class="cta-buttons">
+                    <a href="https://instagram.com/azhara_in_" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-shopping-bag"></i> Shop Now
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Bulk Inquiries
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
