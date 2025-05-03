@@ -848,6 +848,128 @@ html, body {
 #form-status div {
     padding: 0.5rem;
 }
+/* Education Experience Styles */
+.education-experience {
+    padding: 5rem 5%;
+    background-color: white;
+}
+
+.experience-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--light);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+/* New Stype Section Button */
+.stype-section-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #4A00E0, #8E2DE2);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 0, 224, 0.3);
+}
+
+.stype-section-btn:hover {
+    background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(142, 45, 226, 0.4);
+}
+
+.stype-section-btn i {
+    font-size: 0.8rem;
+}
+
+/* Rest of your existing education experience styles... */
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.experience-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.experience-header h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+}
+
+.experience-duration {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.experience-details {
+    margin-bottom: 2rem;
+}
+
+.experience-details p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--gray);
+}
+
+.skills-learned h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.skill-badge {
+    background: rgba(41, 98, 255, 0.1);
+    color: var(--primary);
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-badge i {
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .experience-container {
+        padding: 1.5rem;
+    }
+    
+    .experience-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
     </style>
 </head>
 <body>
@@ -858,6 +980,7 @@ html, body {
         <div class="navbar">
             <a href="#home">Home</a>
             <a href="#about">About</a>
+            <a href="#Education">Education</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
@@ -954,6 +1077,46 @@ html, body {
             </div>
         </div>
     </section>
+<!-- Updated Education Experience Section with Button -->
+<section class="education-experience" id="Education">
+    <div class="section-title">
+        <h2>Education Experience</h2>
+        <p>My learning journey with Stype coding platform</p>
+    </div>
+    <div class="experience-container">
+        <div class="experience-content">
+            <div class="experience-header">
+                <img src="https://i.postimg.cc/K876YkK7/Whats-App-Image-2025-05-03-at-7-43-53-AM.jpg" alt="Stype Logo" class="experience-logo">
+                <div>
+                    <h3>Stype Coding platform</h3>
+                    <p class="experience-duration">2024 - Present | Online Platform</p>
+                </div>
+            </div>
+            <div class="experience-details">
+                <p>This platform is an excellent platform for learning. I have been studying on Stype for the past year, focusing on web development, web designing, and various programming languages related to software engineering.</p>
+                <p>My experience with Stype has been good and helpful. What I enjoy most is the coding part, which makes learning more interesting and practical. I haven't faced any difficulties while using the platform.</p>
+                <p>I would definitely recommend Stype to others because it is a universal platform available in our mother tongue. Moreover, it teaches the functions of different laptops clearly — for example, how saving a file differs between MacBook (Command + S) and Windows (Control + S). These small but important details make Stype stand out from other platforms.</p>
+            </div>
+            <div class="skills-learned">
+                <h4>Skills Acquired:</h4>
+                <div class="skills-grid">
+                    <span class="skill-badge"><i class="fas fa-check"></i> UI Engineering </span>
+                    <span class="skill-badge"><i class="fas fa-check"></i> Web Design</span>
+                    <span class="skill-badge"><i class="fas fa-check"></i> HTML/CSS</span>
+                    <span class="skill-badge"><i class="fas fa-check"></i> JavaScript</span>
+                    <span class="skill-badge"><i class="fas fa-check"></i> Python</span>
+                    <span class="skill-badge"><i class="fas fa-check"></i> Software Engineering Basics</span>
+                </div>
+            </div>
+            <!-- New Stype Button Here -->
+            <a href="https://www.steyp.com/explore/tech-schooling" target="_blank" class="stype-section-btn">
+                Visit Stype Website
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
 
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
