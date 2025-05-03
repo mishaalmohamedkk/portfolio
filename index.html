@@ -848,7 +848,210 @@ html, body {
 #form-status div {
     padding: 0.5rem;
 }
-    </style>
+/* Coding Education Section - Enhanced */
+.coding-education {
+    padding: 5rem 5%;
+    background-color: white;
+    position: relative;
+}
+
+.education-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.education-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.platform-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.platform-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.education-content {
+    flex: 1;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.stars {
+    color: var(--accent2);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.testimonial-btn {
+    background: var(--light);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.testimonial-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.experience-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(41, 98, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.experience-card i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.experience-card h4 {
+    margin-bottom: 0.3rem;
+    color: var(--dark);
+}
+
+.highlight {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark);
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--primary);
+}
+
+.key-benefits {
+    margin: 2rem 0;
+}
+
+.benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.benefit i {
+    color: var(--accent1);
+    margin-top: 0.2rem;
+}
+
+/* Testimonial Modal */
+.testimonial-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    margin: 1.5rem 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .education-container {
+        flex-direction: column;
+    }
+    
+    .education-image {
+        width: 100%;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
 </head>
 <body>
     <!-- Header -->
@@ -954,6 +1157,93 @@ html, body {
             </div>
         </div>
     </section>
+<!-- Coding Education Section -->
+<section class="coding-education" id="education">
+    <div class="section-title">
+        <h2>My Coding Journey</h2>
+        <p>Professional development through Stype's comprehensive platform</p>
+    </div>
+    <div class="education-container">
+        <div class="education-image">
+            <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Coding Education" class="ed-image">
+            <div class="platform-badge">
+                <img src="https://via.placeholder.com/100x100" alt="Stype Logo" class="platform-logo" id="stypeLogo">
+                <span>Certified Learner</span>
+            </div>
+        </div>
+        <div class="education-content">
+            <div class="education-header">
+                <div>
+                    <h3>Professional Development at <span class="stype-logo">Stype</span></h3>
+                    <div class="rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span>4.7/5 based on my experience</span>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://stype.education" target="_blank" class="btn stype-btn">
+                        <i class="fas fa-external-link-alt"></i> Visit Platform
+                    </a>
+                    <button class="btn testimonial-btn" id="testimonialBtn">
+                        <i class="fas fa-play"></i> Watch Testimonial
+                    </button>
+                </div>
+            </div>
+            
+            <div class="education-details">
+                <div class="experience-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <h4>1+ Year of Intensive Learning</h4>
+                        <p>Mastering web technologies through structured curriculum</p>
+                    </div>
+                </div>
+                
+                <p class="highlight">Stype has been instrumental in my development as a programmer, providing an exceptional learning environment that combines theoretical knowledge with practical implementation.</p>
+                
+                <div class="key-benefits">
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Native language support enhances comprehension</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Platform-agnostic approach (Windows/Mac/Linux)</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Industry-relevant projects and assignments</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-learned">
+                <h4>Core Competencies Gained:</h4>
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Skills will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Modal -->
+    <div class="testimonial-modal" id="testimonialModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>My Stype Experience</h3>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/example" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <p>"Stype provided me with the perfect foundation to launch my development career."</p>
+        </div>
+    </div>
+</section>
 
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
@@ -1272,6 +1562,99 @@ document.querySelectorAll('section').forEach(section => {
 // Trigger initial animation for hero section
 document.querySelector('.hero').style.opacity = '1';
 document.querySelector('.hero').style.transform = 'translateY(0)';
+document.addEventListener('DOMContentLoaded', function() {
+    // Skills Data
+    const skillsData = [
+        { icon: 'fa-laptop-code', name: 'Web Development', color: '#2962FF' },
+        { icon: 'fa-paint-brush', name: 'UI/UX Design', color: '#AA00FF' },
+        { icon: 'fa-js', name: 'JavaScript', color: '#F7DF1E' },
+        { icon: 'fa-python', name: 'Python', color: '#3776AB' },
+        { icon: 'fa-database', name: 'Database Design', color: '#FF6D00' },
+        { icon: 'fa-mobile-alt', name: 'Responsive Design', color: '#00C853' },
+        { icon: 'fa-code-branch', name: 'Version Control', color: '#F05133' },
+        { icon: 'fa-server', name: 'Backend Basics', color: '#5E35B1' }
+    ];
+
+    // Populate skills grid
+    const skillsGrid = document.getElementById('skillsGrid');
+    skillsData.forEach(skill => {
+        const skillBadge = document.createElement('div');
+        skillBadge.className = 'skill-badge';
+        skillBadge.innerHTML = `
+            <i class="fas ${skill.icon}" style="color: ${skill.color}"></i> 
+            ${skill.name}
+        `;
+        skillBadge.style.borderLeft = `3px solid ${skill.color}`;
+        skillsGrid.appendChild(skillBadge);
+    });
+
+    // Testimonial Modal
+    const testimonialBtn = document.getElementById('testimonialBtn');
+    const testimonialModal = document.getElementById('testimonialModal');
+    const closeModal = document.getElementById('closeModal');
+
+    if (testimonialBtn && testimonialModal) {
+        testimonialBtn.addEventListener('click', () => {
+            testimonialModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModal.addEventListener('click', () => {
+            testimonialModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === testimonialModal) {
+                testimonialModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Logo hover effect
+    const stypeLogo = document.getElementById('stypeLogo');
+    if (stypeLogo) {
+        stypeLogo.addEventListener('mouseenter', () => {
+            stypeLogo.style.transform = 'scale(1.1) rotate(5deg)';
+        });
+        stypeLogo.addEventListener('mouseleave', () => {
+            stypeLogo.style.transform = 'scale(1) rotate(0)';
+        });
+    }
+
+    // Animate skills on scroll
+    const animateSkills = () => {
+        const skills = document.querySelectorAll('.skill-badge');
+        skills.forEach((skill, index) => {
+            setTimeout(() => {
+                skill.style.opacity = '1';
+                skill.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+    };
+
+    // Intersection Observer for skills animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkills();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    if (skillsGrid) {
+        observer.observe(skillsGrid);
+        
+        // Initialize hidden state
+        document.querySelectorAll('.skill-badge').forEach(skill => {
+            skill.style.opacity = '0';
+            skill.style.transform = 'translateY(20px)';
+            skill.style.transition = 'all 0.5s ease-out';
+        });
+    }
+});
     </script>
 </body>
 </html>
