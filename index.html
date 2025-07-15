@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mishaal Mohamed KK | Developer & Animator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         :root {
             --primary: #2962FF;
@@ -1032,6 +1033,11 @@ html, body {
                 <p>Interactive web experiences</p>
             </div>
             <div class="skill-item">
+                <i class="fab fa-bootstrap"></i>
+                <h3>Bootstrap</h3>
+                <p>Styling with animations and effects</p>
+            </div>
+            <div class="skill-item">
                 <i class="fab fa-python"></i>
                 <h3>Python</h3>
                 <p>Backend development</p>
@@ -1288,157 +1294,148 @@ html, body {
             </div>
             <p class="copyright">&copy; 2025 Mishaal Mohamed KK. All Rights Reserved.</p>
         </div>
-    </footer>
+<script>
+    // Typing Animation
+    const typingText = document.querySelector('.typing-text');
+    const texts = ["Web Developer", "Animator", "Designer", "Student"];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
 
-    <script>
-       // Typing Animation
-const typingText = document.querySelector('.typing-text');
-const texts = ["Web Developer", "Animator", "Designer", "Student"];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100;
+    function type() {
+        const currentText = texts[textIndex];
+        if (isDeleting) {
+            typingText.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            typingText.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 100;
+        }
 
-function type() {
-    const currentText = texts[textIndex];
-    if (isDeleting) {
-        typingText.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-        typingSpeed = 50;
-    } else {
-        typingText.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-        typingSpeed = 100;
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            typingSpeed = 1500;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            typingSpeed = 500;
+        }
+
+        setTimeout(type, typingSpeed);
     }
 
-    if (!isDeleting && charIndex === currentText.length) {
-        isDeleting = true;
-        typingSpeed = 1500;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length;
-        typingSpeed = 500;
-    }
+    // Start typing animation
+    setTimeout(type, 1000);
 
-    setTimeout(type, typingSpeed);
-}
+    // Mobile Menu Toggle - Fixed Version
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
 
-// Start typing animation
-setTimeout(type, 1000);
-
-// Mobile Menu Toggle - Fixed Version
-const menuToggle = document.querySelector('.menu-toggle');
-const navbar = document.querySelector('.navbar');
-
-menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-    menuToggle.querySelector('i').className = navbar.classList.contains('active') 
-        ? 'fas fa-times' 
-        : 'fas fa-bars';
-});
-
-// Close menu when clicking a link
-document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuToggle.querySelector('i').className = 'fas fa-bars';
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuToggle.querySelector('i').className = navbar.classList.contains('active') 
+            ? 'fas fa-times' 
+            : 'fas fa-bars';
     });
-});
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            window.scrollTo({
-                top: target.offsetTop - 80, // Adjust for fixed header
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
-            if (navbar.classList.contains('active')) {
-                navbar.classList.remove('active');
-                menuToggle.querySelector('i').className = 'fas fa-bars';
-            }
-        }
+    // Close menu when clicking a link
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+        });
     });
-});
 
-// Form submission with Formspree
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-const formStatus = document.getElementById('form-status');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Change button text and disable it
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        try {
-            const formData = new FormData(contactForm);
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if (response.ok) {
-                formStatus.innerHTML = '<div style="color: var(--accent1);">Thank you! Your message has been sent successfully.</div>';
-                contactForm.reset();
-            } else {
-                const data = await response.json();
-                if (data.errors) {
-                    formStatus.innerHTML = `<div style="color: var(--accent2);">Error: ${data.errors.map(error => error.message).join(', ')}</div>`;
-                } else {
-                    formStatus.innerHTML = '<div style="color: var(--accent2);">Oops! There was a problem submitting your form. Please try again.</div>';
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                    menuToggle.querySelector('i').className = 'fas fa-bars';
                 }
             }
-        } catch (error) {
-            formStatus.innerHTML = '<div style="color: var(--accent2);">Oops! There was a problem submitting your form. Please try again.</div>';
-        } finally {
-            submitBtn.textContent = 'Send Message';
-            submitBtn.disabled = false;
-            
-            // Hide status message after 5 seconds
-            setTimeout(() => {
-                formStatus.innerHTML = '';
-            }, 5000);
-        }
+        });
     });
-}
 
-// Scroll animation for sections
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const scrollPosition = window.scrollY + window.innerHeight;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+    // Form submission with jQuery AJAX and SweetAlert
+    $(document).on("submit", "#contactForm", function(e) {
+        e.preventDefault();
+        var $this = $(this);
+
+        var data = $this.serialize();
+        var action = $this.attr("action");
+        var method = $this.attr("method") || "POST";
+
+        // Show loading state
+        Swal.fire({
+            title: 'Sending...',
+            text: 'Please wait while we send your message',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        $.ajax({
+            type: method,
+            url: action,
+            data: data,
+            success: (response) => {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your message has been sent successfully",
+                    icon: "success",
+                });
+                $this.trigger("reset");
+            },
+            error: (error) => {
+                Swal.fire({
+                    title: "Error",
+                    text: "An error occurred while sending your message. Please try again later.",
+                    icon: "error",
+                });
+            }
+        });
+    });
+
+    // Scroll animation for sections
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const scrollPosition = window.scrollY + window.innerHeight;
         
-        if (scrollPosition > sectionTop + sectionHeight * 0.3) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        }
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition > sectionTop + sectionHeight * 0.3) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
     });
-});
 
-// Initialize sections with fade-in effect
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-});
+    // Initialize sections with fade-in effect
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
 
-// Trigger initial animation for hero section
-document.querySelector('.hero').style.opacity = '1';
-document.querySelector('.hero').style.transform = 'translateY(0)';
-    </script>
+    // Trigger initial animation for hero section
+    document.querySelector('.hero').style.opacity = '1';
+    document.querySelector('.hero').style.transform = 'translateY(0)';
+</script>
 </body>
 </html>
